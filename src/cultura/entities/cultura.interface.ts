@@ -1,4 +1,7 @@
-export class CulturaDto {
+import * as nano from "nano"
+import { Localização, Temperatura, Pluviometria, Alerta } from "../dto/cultura.dto";
+
+export interface iCultura extends nano.MaybeDocument {
     ponto_cultivo : Localização;
     nome_cultivo : string;
     temperatura_max : number;
@@ -11,24 +14,3 @@ export class CulturaDto {
     alertasTemp : Alerta[];
     alertasPluvi : Alerta[];
 }
-
-
-export type Temperatura = {
-    data : Date,
-    temperatura : number
-}
-
-export type Pluviometria = {
-    data : Date,
-    pluviometria : number
-}
-
-export type Localização = {
-    latitude : string,
-    longitude : string
-}
-
-export type Alerta = {
-    [date: string] : number;
-}
-
